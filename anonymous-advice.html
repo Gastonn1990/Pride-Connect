@@ -147,7 +147,9 @@
       <h2>Ask for advice</h2>
       <p>This is a demonstration. Questions are not sent to other people.</p>
 
-      <form id="adviceForm">
+     <form id="adviceForm"
+      action="https://formspree.io/f/mgaojzro"
+      method="POST">
         <label for="topic">Choose a topic</label>
         <select id="topic" required>
           <option>Mental wellness</option>
@@ -159,8 +161,7 @@
         </select>
 
         <label for="question">Your question</label>
-        <textarea id="question" maxlength="1000" required placeholder="Share only what feels comfortable..."></textarea>
-
+        <textarea id="question" name="message" maxlength="1000" required placeholder="Share only what feels comfortable"></textarea>
         <p class="notice">Privacy reminder: this demo does not provide secure anonymity. Avoid entering names, addresses, or contact details.</p>
         <button type="submit">Preview My Question ✨</button>
         <p id="status" aria-live="polite"></p>
@@ -190,32 +191,43 @@
   <footer>© 2026 Pride Connect · Respect · Kindness · Community</footer>
 
   <script>
-    document.getElementById("adviceForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+   
+document.getElementById("adviceForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-      const card = document.createElement("article");
-      card.className = "card";
+  const form = event.currentTarget;
+  const status = document.getElementById("status");
+  const question = document.getElementById("question").value.trim();
+  const topic = document.getElementById("topic").value;
 
-      const tag = document.createElement("span");
-      tag.className = "tag";
-      tag.textContent = document.getElementById("topic").value;
+  if (!question) {
+    status.textContent = "Please enter your question first.";
+    return;
+  }
 
-      const heading = document.createElement("h3");
-      heading.textContent = "Your question preview";
+  status.textContent = "Sending your question...";
 
-      const content = document.createElement("p");
-      content.textContent = document.getElementById("question").value;
+  const formData = new FormData(form);
+  formData.set("message", question);
+  formData.set("topic", topic);
 
-      const note = document.createElement("p");
-      note.textContent = "Preview only — your question was not published.";
-
-      card.append(tag, heading, content, note);
-      document.querySelector("main").appendChild(card);
-      document.getElementById("status").textContent =
-        "Preview ready! Nothing was published.";
-      document.getElementById("question").value = "";
-      card.scrollIntoView({ behavior: "smooth", block: "center" });
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
     });
-  </script>
+
+    if (response.ok) {
+      status.textContent = "Your question was submitted successfully.";
+      form.reset();
+    } else {
+      status.textContent = "Your question could not be sent. Please try again.";
+    }
+  } catch (error) {
+    status.textContent = "Connection problem. Please try again.";
+  }
+});
+</script>
 </body>
 </html>
