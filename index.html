@@ -4,130 +4,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pride Connect | Community & Support</title>
-  <style>
-    * { box-sizing: border-box; }
+  <meta name="theme-color" content="#f4eaff">
+  <title>Pride Connect | Community &amp; Support</title>
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #302342;
-    background: linear-gradient(135deg, #fff7fc, #f1eaff 48%, #e8faff);
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #302342;
+      background: linear-gradient(135deg, #fff7fc, #f1eaff 48%, #e8faff);
+      min-height: 100vh;
+    }
 
     header {
-      padding: 22px;
+      padding: 30px 18px;
       text-align: center;
-      background: #140d20;
-      border-bottom: 2px solid #a855f7;
+      background: linear-gradient(
+        110deg,
+        #ffb9df,
+        #d8c3ff,
+        #aeeeff,
+        #c1ffd9
+      );
+      border-bottom: 5px solid #ff75bd;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
-      color: #e879f9;
-      text-shadow: 0 0 15px #a855f7;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #54256e;
+      text-shadow: 0 2px 0 #ffffffaa;
     }
 
-    header p { color: #d8b4fe; }
+    header p {
+      color: #513660;
+      font-size: 1.08rem;
+      margin-bottom: 0;
+    }
 
     nav {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
-      padding: 15px;
+      padding: 16px;
+      background: #ffffff;
+      box-shadow: 0 4px 15px #59377b12;
     }
 
     nav a {
-      color: white;
+      color: #652d8a;
+      background: #ffffff;
       text-decoration: none;
-      padding: 10px 14px;
-      border: 1px solid #a855f7;
-      border-radius: 20px;
+      font-weight: bold;
+      padding: 10px 15px;
+      border: 2px solid #dfc7f4;
+      border-radius: 25px;
+      transition: background 0.2s, transform 0.2s;
     }
 
-    nav a:hover {
-      background: #a855f7;
+    nav a:hover,
+    nav a:focus {
+      color: #ffffff;
+      background: #a337d1;
+      border-color: #a337d1;
+      transform: translateY(-2px);
     }
 
     main {
-      width: min(100% - 32px, 900px);
-      margin: 25px auto;
+      width: min(100% - 32px, 1000px);
+      margin: 28px auto;
+    }
+
+    section {
+      margin: 28px 0;
+      scroll-margin-top: 20px;
+    }
+
+    section > h2 {
+      color: #652d8a;
+      font-size: 1.8rem;
     }
 
     .hero {
-      padding: 35px 22px;
+      padding: 42px 24px;
       text-align: center;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #241033, #10101d);
-      border: 1px solid #553071;
+      border-radius: 26px;
+      background: linear-gradient(
+        135deg,
+        #ffffff,
+        #fff0f8 42%,
+        #f0eaff 72%,
+        #e7faff
+      );
+      border: 2px solid #ffffff;
+      box-shadow: 0 12px 35px #69428b20;
     }
 
-    .hero h2 { font-size: 2rem; }
+    .hero h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: #6d2992;
+      margin-top: 0;
+    }
 
     .hero p {
-      color: #ddd2eb;
-      line-height: 1.7;
+      color: #514361;
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 14px auto;
     }
 
     .rainbow {
-      height: 5px;
-      margin: 25px 0;
-      border-radius: 10px;
+      height: 8px;
+      margin: 26px 0;
+      border-radius: 20px;
       background: linear-gradient(
-        90deg, #ff4545, #ffad42, #fff05a,
-        #42ed83, #45d9ff, #a855f7, #ff65c3
+        90deg,
+        #ff526b,
+        #ffad42,
+        #ffe95a,
+        #42d98a,
+        #39c8f5,
+        #9765f5,
+        #ff69c9
       );
+      box-shadow: 0 3px 12px #b68de633;
     }
 
     .button {
       display: inline-block;
       margin-top: 12px;
-      padding: 13px 20px;
-      color: white;
-      background: #9333ea;
-      border-radius: 12px;
+      padding: 14px 22px;
+      color: #ffffff;
+      background: linear-gradient(
+        100deg,
+        #a337d1,
+        #e64f9b,
+        #f28a54
+      );
+      border-radius: 14px;
       text-decoration: none;
       font-weight: bold;
+      box-shadow: 0 5px 14px #a337d13b;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover,
+    .button:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px #a337d14a;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
     .card {
-      padding: 22px;
-      border-radius: 16px;
-      background: #171121;
-      border: 1px solid #392447;
+      padding: 23px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid #e6d8f5;
+      box-shadow: 0 7px 22px #59377b12;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .card h3 { color: #e879f9; }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 11px 27px #59377b20;
+    }
+
+    .card h3 {
+      color: #78389b;
+      font-size: 1.2rem;
+    }
 
     .card p {
-      color: #d2c8df;
-      line-height: 1.6;
+      color: #514761;
+      line-height: 1.7;
+    }
+
+    #support .card {
+      border-left: 6px solid #55cba0;
+    }
+
+    #community .card {
+      border-left: 6px solid #f17db8;
+    }
+
+    .welcome-strip {
+      text-align: center;
+      padding: 24px;
+      margin-top: 25px;
+      background: linear-gradient(100deg, #ffe1f1, #e9ddff, #dff8ff);
+      border: 1px solid #e6d8f5;
+      border-radius: 20px;
+      color: #54256e;
     }
 
     footer {
       padding: 25px;
       text-align: center;
-      color: #b9a8ca;
+      color: #625171;
+      background: #ffffffa8;
+    }
+
+    footer p {
+      margin-bottom: 0;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #652d8a;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 520px) {
+      nav {
+        gap: 8px;
+      }
+
+      nav a {
+        padding: 9px 12px;
+        font-size: 0.94rem;
+      }
+
+      .hero {
+        padding: 28px 18px;
+      }
+
+      .card {
+        padding: 19px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>🌈 Pride Connect</h1>
     <p>Your people. Your voice. Your community.</p>
   </header>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="#home">Home</a>
-    <a href="#advice">Ask for Advice</a>
+    <a href="anonymous-advice.html">Ask for Advice</a>
     <a href="#support">Support Circles</a>
     <a href="#community">Community</a>
   </nav>
@@ -135,53 +276,88 @@
   <main>
     <section class="hero" id="home">
       <h2>You Belong Here 💜</h2>
+
       <p>
         Life can be complicated. Find a welcoming space to
         share your experiences, ask questions, and learn from
         people who care.
       </p>
-      <a class="button" href="#advice">Explore Advice & Support</a>
-      <div class="rainbow"></div>
-      <p>Come as you are. You are welcome here.</p>
+
+      <a class="button" href="anonymous-advice.html">
+        Explore Advice &amp; Support
+      </a>
+
+      <div class="rainbow" aria-hidden="true"></div>
+
+      <p>
+        Come as you are. You are welcome here.
+      </p>
     </section>
 
     <section id="advice">
-      <h2>Find Advice & Understanding</h2>
+      <h2>Find Advice &amp; Understanding</h2>
+
       <div class="cards">
         <article class="card">
           <h3>💜 Relationships</h3>
-          <p>Talk about love, friendships, boundaries, and trust.</p>
+          <p>
+            Talk about love, friendships, boundaries, and trust.
+          </p>
         </article>
+
         <article class="card">
-          <h3>🌱 Identity & Growth</h3>
-          <p>Share experiences, build confidence, and grow at your own pace.</p>
+          <h3>🌱 Identity &amp; Growth</h3>
+          <p>
+            Share experiences, build confidence, and grow
+            at your own pace.
+          </p>
         </article>
+
         <article class="card">
-          <h3>🤝 Family & Support</h3>
-          <p>Discuss family, belonging, and finding people who understand.</p>
+          <h3>🤝 Family &amp; Support</h3>
+          <p>
+            Discuss family, belonging, and finding people
+            who understand.
+          </p>
         </article>
+
         <article class="card">
           <h3>✨ Everyday Life</h3>
-          <p>Ask questions, exchange ideas, and support one another.</p>
+          <p>
+            Ask questions, exchange ideas, and support
+            one another.
+          </p>
         </article>
       </div>
+
+      <p>
+        <a class="button" href="anonymous-advice.html">
+          Visit Anonymous Advice 💬
+        </a>
+      </p>
     </section>
 
     <section id="support">
       <h2>Support Circles</h2>
+
       <div class="card">
+        <h3>There is room for everyone here 💚</h3>
         <p>
           A space for thoughtful conversations, encouragement,
           and respectful advice.
         </p>
-        <p><strong>Community rule:</strong> Respect every person's
-        identity, privacy, and boundaries.</p>
+        <p>
+          <strong>Community rule:</strong>
+          Respect every person's identity, privacy, and boundaries.
+        </p>
       </div>
     </section>
 
     <section id="community">
       <h2>Our Community</h2>
+
       <div class="card">
+        <h3>Kindness makes us stronger 💖</h3>
         <p>
           Pride Connect welcomes LGBTQ+ people and supportive allies.
           Be kind, listen without judgment, and remember that
@@ -189,10 +365,17 @@
         </p>
       </div>
     </section>
+
+    <div class="welcome-strip">
+      <h2>🌈 Be proud of who you are!</h2>
+      <p>
+        Your story matters. Your voice matters. You matter.
+      </p>
+    </div>
   </main>
 
   <footer>
-    <div class="rainbow"></div>
+    <div class="rainbow" aria-hidden="true"></div>
     <p>© 2026 Pride Connect · Belonging starts here.</p>
   </footer>
 </body>
