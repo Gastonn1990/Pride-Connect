@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pride Connect | Community & Support</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #090711;
+    }
+
+    header {
+      padding: 22px;
+      text-align: center;
+      background: #140d20;
+      border-bottom: 2px solid #a855f7;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #e879f9;
+      text-shadow: 0 0 15px #a855f7;
+    }
+
+    header p { color: #d8b4fe; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 14px;
+      border: 1px solid #a855f7;
+      border-radius: 20px;
+    }
+
+    nav a:hover {
+      background: #a855f7;
+    }
+
+    main {
+      width: min(100% - 32px, 900px);
+      margin: 25px auto;
+    }
+
+    .hero {
+      padding: 35px 22px;
+      text-align: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #241033, #10101d);
+      border: 1px solid #553071;
+    }
+
+    .hero h2 { font-size: 2rem; }
+
+    .hero p {
+      color: #ddd2eb;
+      line-height: 1.7;
+    }
+
+    .rainbow {
+      height: 5px;
+      margin: 25px 0;
+      border-radius: 10px;
+      background: linear-gradient(
+        90deg, #ff4545, #ffad42, #fff05a,
+        #42ed83, #45d9ff, #a855f7, #ff65c3
+      );
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 13px 20px;
+      color: white;
+      background: #9333ea;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 16px;
+      background: #171121;
+      border: 1px solid #392447;
+    }
+
+    .card h3 { color: #e879f9; }
+
+    .card p {
+      color: #d2c8df;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #b9a8ca;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌈 Pride Connect</h1>
+    <p>Your people. Your voice. Your community.</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#advice">Ask for Advice</a>
+    <a href="#support">Support Circles</a>
+    <a href="#community">Community</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <h2>You Belong Here 💜</h2>
+      <p>
+        Life can be complicated. Find a welcoming space to
+        share your experiences, ask questions, and learn from
+        people who care.
+      </p>
+      <a class="button" href="#advice">Explore Advice & Support</a>
+      <div class="rainbow"></div>
+      <p>Come as you are. You are welcome here.</p>
+    </section>
+
+    <section id="advice">
+      <h2>Find Advice & Understanding</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>💜 Relationships</h3>
+          <p>Talk about love, friendships, boundaries, and trust.</p>
+        </article>
+        <article class="card">
+          <h3>🌱 Identity & Growth</h3>
+          <p>Share experiences, build confidence, and grow at your own pace.</p>
+        </article>
+        <article class="card">
+          <h3>🤝 Family & Support</h3>
+          <p>Discuss family, belonging, and finding people who understand.</p>
+        </article>
+        <article class="card">
+          <h3>✨ Everyday Life</h3>
+          <p>Ask questions, exchange ideas, and support one another.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="support">
+      <h2>Support Circles</h2>
+      <div class="card">
+        <p>
+          A space for thoughtful conversations, encouragement,
+          and respectful advice.
+        </p>
+        <p><strong>Community rule:</strong> Respect every person's
+        identity, privacy, and boundaries.</p>
+      </div>
+    </section>
+
+    <section id="community">
+      <h2>Our Community</h2>
+      <div class="card">
+        <p>
+          Pride Connect welcomes LGBTQ+ people and supportive allies.
+          Be kind, listen without judgment, and remember that
+          everyone's experience is different.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="rainbow"></div>
+    <p>© 2026 Pride Connect · Belonging starts here.</p>
+  </footer>
+</body>
+</html>
