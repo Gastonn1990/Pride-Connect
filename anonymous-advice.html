@@ -2,235 +2,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anonymous Advice | Pride Connect</title>
-<style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #fff;
-  background: radial-gradient(ellipse at top, #42145f, #090710 65%);
-}
-
-header {
-  text-align: center;
-  padding: 25px 15px;
-  background: #130d20;
-  border-bottom: 2px solid #bd76ff;
-}
-
-.logo {
-  font-size: 32px;
-  font-weight: 900;
-  background: linear-gradient(90deg, #ff5470, #ffad55, #fff16a, #57ffae, #54eaff, #bd76ff, #ff4fd8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-main { max-width: 720px; margin: auto; padding: 24px 16px; }
-a { color: #54eaff; text-decoration: none; }
-h1 { font-size: 32px; line-height: 1.25; }
-h2 { font-size: 24px; }
-h3 { font-size: 19px; }
-p, label, textarea, select, button { font-family: Arial, sans-serif; font-size: 16px; }
-
-.card {
-  position: relative;
-  background: #191323;
-  border: 1px solid #775092;
-  border-radius: 18px;
-  padding: 22px;
-  margin: 22px 0;
-  box-shadow: 0 8px 28px #0006;
-}
-
-.tag {
-  display: inline-block;
-  color: #e7caff;
-  border: 1px solid #bd76ff;
-  border-radius: 25px;
-  padding: 4px 11px;
-  font-size: 13px;
-}
-
-label { display: block; margin: 16px 0 8px; font-weight: bold; }
-
-textarea, select {
-  width: 100%;
-  padding: 13px;
-  color: white;
-  background: #0c0913;
-  border: 1px solid #84689c;
-  border-radius: 10px;
-}
-
-textarea { min-height: 125px; resize: vertical; }
-
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border: 0;
-  border-radius: 11px;
-  background: linear-gradient(100deg, #ff4fd8, #bd76ff, #54eaff);
-  color: #160b21;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.notice {
-  padding: 12px;
-  border-left: 3px solid #54eaff;
-  background: #54eaff12;
-  color: #ddd0e8;
-  font-size: 14px;
-}
-
-.reply {
-  margin-top: 14px;
-  padding: 12px;
-  border-left: 3px solid #bd76ff;
-  background: #bd76ff12;
-  border-radius: 0 10px 10px 0;
-}
-
-.reply strong { color: #d8b3ff; }
-
-.floating-rainbow {
-  position: fixed;
-  top: 155px;
-  right: -55px;
-  width: 180px;
-  height: 95px;
-  border-top: 9px solid #ff5470;
-  border-radius: 110px 110px 0 0;
-  box-shadow:
-    0 -12px 0 -1px #ffad55,
-    0 -24px 0 -2px #fff16a,
-    0 -36px 0 -3px #57ffae,
-    0 -48px 0 -4px #54eaff,
-    0 -60px 0 -5px #bd76ff;
-  opacity: .65;
-  pointer-events: none;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 15px; }
-}
-
-footer { text-align: center; padding: 24px; color: #d1c5df; }
-
-@media (max-width: 480px) {
-  .logo { font-size: 27px; }
-  h1 { font-size: 29px; }
-  h2 { font-size: 22px; }
-  .floating-rainbow { opacity: .35; right: -110px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .floating-rainbow { animation: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anonymous Advice | Pride Connect</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #302342;
+      background: linear-gradient(135deg, #fff7fc, #f1eaff 48%, #e8faff);
+    }
+    header {
+      text-align: center;
+      padding: 28px 15px;
+      background: linear-gradient(110deg, #ffb9df, #d8c3ff, #aeeeff, #c1ffd9);
+      border-bottom: 5px solid #e6d8f5;
+    }
+    .logo {
+      font-size: clamp(27px, 5vw, 38px);
+      font-weight: 900;
+      color: #54256e;
+      text-shadow: 0 2px 0 #ffffffa8;
+    }
+    header p { color: #513660; }
+    main { max-width: 780px; margin: auto; padding: 24px 16px; }
+    a { color: #702b98; font-weight: bold; }
+    h1 { font-size: clamp(29px, 5vw, 36px); line-height: 1.25; color: #652d8a; }
+    h2 { font-size: 25px; color: #652d8a; }
+    h3 { font-size: 20px; color: #78389b; }
+    p, label, textarea, select, button { font-family: Arial, sans-serif; font-size: 16px; }
+    .card {
+      background: #fff;
+      border: 1px solid #e4d5f4;
+      border-radius: 20px;
+      padding: 23px;
+      margin: 22px 0;
+      box-shadow: 0 8px 26px #59377b15;
+    }
+    .tag {
+      display: inline-block;
+      color: #692d8c;
+      background: linear-gradient(100deg, #ffe1f1, #e9ddff, #dff8ff);
+      border: 1px solid #d9c3f0;
+      border-radius: 25px;
+      padding: 5px 12px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    label { display: block; margin: 16px 0 8px; font-weight: bold; color: #4a355d; }
+    textarea, select {
+      width: 100%;
+      padding: 13px;
+      color: #302342;
+      background: #fff;
+      border: 2px solid #d8c7ec;
+      border-radius: 12px;
+    }
+    textarea { min-height: 125px; resize: vertical; }
+    textarea:focus, select:focus { outline: 3px solid #d9c4ff; border-color: #9c63d3; }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(100deg, #a337d1, #e64f9b, #f28a54);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 14px #a337d12c;
+    }
+    button:hover, button:focus { filter: brightness(1.05); }
+    .notice {
+      padding: 13px;
+      border-left: 5px solid #42bfa0;
+      border-radius: 8px;
+      background: #e9fff7;
+      color: #315749;
+      font-size: 14px;
+    }
+    .reply {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 4px solid #c184ec;
+      background: linear-gradient(100deg, #fff0f8, #f5efff, #edfaff);
+      border-radius: 0 12px 12px 0;
+    }
+    .reply strong { color: #702b98; }
+    .floating-rainbow {
+      position: fixed;
+      top: 155px;
+      right: -55px;
+      width: 180px;
+      height: 95px;
+      border-top: 9px solid #ff5470;
+      border-radius: 110px 110px 0 0;
+      box-shadow: 0 -12px 0 -1px #ffad55, 0 -24px 0 -2px #fff16a,
+        0 -36px 0 -3px #57dca0, 0 -48px 0 -4px #54dafa,
+        0 -60px 0 -5px #bd76ff;
+      opacity: .7;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes float {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 15px; }
+    }
+    footer { text-align: center; padding: 24px; color: #625171; }
+    @media (max-width: 480px) {
+      .card { padding: 18px; }
+      .floating-rainbow { opacity: .35; right: -110px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .floating-rainbow { animation: none; }
+    }
+  </style>
 </head>
 <body>
-<div class="floating-rainbow" aria-hidden="true"></div>
+  <div class="floating-rainbow" aria-hidden="true"></div>
 
-<header>
-  <div class="logo">🌈 PRIDE CONNECT</div>
-  <p>A place to feel heard, supported, and welcome.</p>
-</header>
+  <header>
+    <div class="logo">🌈 PRIDE CONNECT</div>
+    <p>A place to feel heard, supported, and welcome.</p>
+  </header>
 
-<main>
-  <a href="index.html">← Back to Home</a>
+  <main>
+    <a href="index.html">← Back to Home</a>
 
-  <section class="card">
-    <span class="tag">YOU BELONG HERE</span>
-    <h1>Anonymous Advice 💜</h1>
-    <p>Share what's on your mind and find encouragement in a welcoming space.</p>
-    <p>LGBTQ+ people and supportive allies are welcome.</p>
-  </section>
+    <section class="card">
+      <span class="tag">YOU BELONG HERE</span>
+      <h1>Anonymous Advice 💜</h1>
+      <p>Share what's on your mind and find encouragement in a welcoming space.</p>
+      <p>LGBTQ+ people and supportive allies are welcome.</p>
+      <div style="height:7px;border-radius:20px;background:linear-gradient(90deg,#ff526b,#ffad42,#ffe95a,#42d98a,#39c8f5,#9765f5,#ff69c9)"></div>
+    </section>
 
-  <section class="card">
-    <h2>Ask for advice</h2>
-    <p>This is a demonstration. Questions are not sent to other people.</p>
+    <section class="card">
+      <h2>Ask for advice</h2>
+      <p>This is a demonstration. Questions are not sent to other people.</p>
 
-    <form id="adviceForm">
-      <label for="topic">Choose a topic</label>
-      <select id="topic" required>
-        <option>Mental wellness</option>
-        <option>Relationships</option>
-        <option>Coming out</option>
-        <option>Family and friends</option>
-        <option>Self-confidence</option>
-        <option>Other</option>
-      </select>
+      <form id="adviceForm">
+        <label for="topic">Choose a topic</label>
+        <select id="topic" required>
+          <option>Mental wellness</option>
+          <option>Relationships</option>
+          <option>Coming out</option>
+          <option>Family and friends</option>
+          <option>Self-confidence</option>
+          <option>Other</option>
+        </select>
 
-      <label for="question">Your question</label>
-      <textarea id="question" maxlength="1000" required placeholder="Share only what feels comfortable..."></textarea>
+        <label for="question">Your question</label>
+        <textarea id="question" maxlength="1000" required placeholder="Share only what feels comfortable..."></textarea>
 
-      <p class="notice">Privacy reminder: this demo does not provide secure anonymity. Avoid entering names, addresses, or contact details.</p>
-      <button type="submit">Preview My Question ✨</button>
-      <p id="status" aria-live="polite"></p>
-    </form>
-  </section>
+        <p class="notice">Privacy reminder: this demo does not provide secure anonymity. Avoid entering names, addresses, or contact details.</p>
+        <button type="submit">Preview My Question ✨</button>
+        <p id="status" aria-live="polite"></p>
+      </form>
+    </section>
 
-  <section>
-    <h2>Community encouragement 💖</h2>
-    <p>These are examples, not messages from real members.</p>
+    <section>
+      <h2>Community encouragement 💖</h2>
+      <p>These are examples, not messages from real members.</p>
 
-    <article class="card">
-      <span class="tag">Mental wellness</span>
-      <h3>How can I be kinder to myself?</h3>
-      <p>Sometimes I put too much pressure on myself. How can I slow down?</p>
-      <div class="reply">
-        <strong>Community encouragement</strong>
-        <p>You deserve patience, too. Try taking one small step at a time and talking with someone you trust.</p>
-      </div>
-      <div class="reply">
-        <strong>Another supportive thought</strong>
-        <p>Speak to yourself as you would speak to a friend. Small progress still counts.</p>
-      </div>
-    </article>
-  </section>
-</main>
+      <article class="card">
+        <span class="tag">Mental wellness</span>
+        <h3>How can I be kinder to myself?</h3>
+        <p>Sometimes I put too much pressure on myself. How can I slow down?</p>
+        <div class="reply">
+          <strong>Community encouragement</strong>
+          <p>You deserve patience, too. Try taking one small step at a time and talking with someone you trust.</p>
+        </div>
+        <div class="reply">
+          <strong>Another supportive thought</strong>
+          <p>Speak to yourself as you would speak to a friend. Small progress still counts.</p>
+        </div>
+      </article>
+    </section>
+  </main>
 
-<footer>© Pride Connect · Respect · Kindness · Community</footer>
+  <footer>© 2026 Pride Connect · Respect · Kindness · Community</footer>
 
-<script>
-document.getElementById("adviceForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+  <script>
+    document.getElementById("adviceForm").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-  const card = document.createElement("article");
-  card.className = "card";
+      const card = document.createElement("article");
+      card.className = "card";
 
-  const tag = document.createElement("span");
-  tag.className = "tag";
-  tag.textContent = document.getElementById("topic").value;
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = document.getElementById("topic").value;
 
-  const heading = document.createElement("h3");
-  heading.textContent = "Your question preview";
+      const heading = document.createElement("h3");
+      heading.textContent = "Your question preview";
 
-  const content = document.createElement("p");
-  content.textContent = document.getElementById("question").value;
+      const content = document.createElement("p");
+      content.textContent = document.getElementById("question").value;
 
-  const note = document.createElement("p");
-  note.textContent = "Preview only — your question was not published.";
+      const note = document.createElement("p");
+      note.textContent = "Preview only — your question was not published.";
 
-  card.append(tag, heading, content, note);
-  document.querySelector("main").appendChild(card);
-
-  document.getElementById("status").textContent = "Preview ready! Nothing was published.";
-  document.getElementById("question").value = "";
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
-});
-</script>
+      card.append(tag, heading, content, note);
+      document.querySelector("main").appendChild(card);
+      document.getElementById("status").textContent =
+        "Preview ready! Nothing was published.";
+      document.getElementById("question").value = "";
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  </script>
 </body>
 </html>
