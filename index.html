@@ -418,5 +418,77 @@ section > h2 {
   <p id="member-status" role="status" aria-live="polite"></p>
 </section>
 
+<script type="module">
+  import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+  const SUPABASE_URL = "https://qwozozgxdxizpygvsyrb.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
+  const supabase = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  const emailInput = document.getElementById("member-email");
+  const passwordInput = document.getElementById("member-password");
+  const status = document.getElementById("member-status");
+
+  document.getElementById("member-signup").addEventListener("click", async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || password.length < 8) {
+      status.textContent = "Enter a valid email and a password of at least 8 characters.";
+      return;
+    }
+
+    status.textContent = "Creating your account...";
+
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: "https://gastonn1990.github.io/Pride-Connect/"
+      }
+    });
+
+    status.textContent = error
+      ? "Sign-up failed: " + error.message
+      : "Check your email for a confirmation link if email confirmation is enabled.";
+  });
+
+  document.getElementById("member-login").addEventListener("click", async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+      status.textContent = "Enter your email and password.";
+      return;
+    }
+
+    status.textContent = "Signing in...";
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    status.textContent = error
+      ? "Sign-in failed: " + error.message
+      : "You are signed in to Pride Connect! 🌈";
+  });
+
+  document.getElementById("member-logout").addEventListener("click", async () => {
+    const { error } = await supabase.auth.signOut();
+    status.textContent = error ? error.message : "You have signed out.";
+  });
+
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session) {
+    status.textContent = "You are signed in to Pride Connect! 🌈";
+    document.getElementById("member-logout").hidden = false;
+  }
+</script>
+
 </body>
 </html>
