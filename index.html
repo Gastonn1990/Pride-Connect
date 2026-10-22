@@ -396,6 +396,27 @@ section > h2 {
   <footer>
     <div class="rainbow" aria-hidden="true"></div>
     <p>© 2026 Pride Connect · Belonging starts here.</p>
-  </footer>
+</footer>
+
+<!-- Pride Connect Member Sign-In -->
+<section id="member-account" style="max-width:600px;margin:40px auto;padding:24px;border-radius:18px;background:#fff;box-shadow:0 8px 24px #0001;color:#222;">
+  <h2 style="text-align:center;color:#e34b83;">🌈 Join Pride Connect</h2>
+  <p style="text-align:center;">Create an account or sign in to join our community.</p>
+
+  <label for="member-email">Email address</label>
+  <input id="member-email" type="email" autocomplete="email" required
+    style="box-sizing:border-box;width:100%;padding:12px;margin:8px 0 16px;border:1px solid #ccc;border-radius:8px;">
+
+  <label for="member-password">Password</label>
+  <input id="member-password" type="password" autocomplete="current-password" minlength="8" required
+    style="box-sizing:border-box;width:100%;padding:12px;margin:8px 0 16px;border:1px solid #ccc;border-radius:8px;">
+
+  <button id="member-signup" type="button" style="padding:12px 16px;margin:4px;border:0;border-radius:9px;background:#16a085;color:white;cursor:pointer;">Create account</button>
+  <button id="member-login" type="button" style="padding:12px 16px;margin:4px;border:0;border-radius:9px;background:#e34b83;color:white;cursor:pointer;">Sign in</button>
+  <button id="member-logout" type="button" hidden style="padding:12px 16px;margin:4px;border:0;border-radius:9px;cursor:pointer;">Sign out</button>
+
+  <p id="member-status" role="status" aria-live="polite"></p>
+</section>
+
 </body>
 </html>
